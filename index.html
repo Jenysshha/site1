@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> My site </title>
+<script src="images/form.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+<style>
+#grinch12_image{
+position: absolute;     
+top: 320%; 
+left: 32%;  
+ }
+
+
+#nachfoto{
+position: absolute;     
+top: 0%; 
+left: 0%;    
+    }
+#myForm{
+position: absolute;     
+top: 290%; 
+left: 75%;  
+color:#25248b;
+}
+#contact{
+position: absolute;     
+top: 280%; 
+left: 70%;  
+
+}
+
+#OGeroe{
+position: absolute;     
+top: 100%; 
+left: 45%;  
+} 
+
+#istoria{
+position: absolute;     
+top: 200%; 
+left: 45%;  
+}
+
+/*баннер*/
+#slides{
+ position: relative;
+ height: 250px;
+ padding: 10px;
+ text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+ top: 50px;
+ left: 50px;
+ z-index: 1;
+}
+.slide{
+ position: absolute;
+ left: 65%;
+ top: 590%;
+ width: 30%;
+ height: auto;
+ opacity: 0;
+ z-index: 1;
+ filter: drop-shadow(0 0 13px rgba(0,0,100,0.5));
+ -webkit-transition: opacity 1s;
+ -moz-transition: opacity 1s;
+ -o-transition: opacity 1s;
+ transition: opacity 1s;
+}
+.showing{
+ opacity: 1;
+ z-index: 2;
+}
+.slide{
+ box-sizing: border-box;
+}
+
+/*картинка около о герое*/
+#grinch1_image{
+position: absolute; 
+top:  120%; 
+left: 70%; 
+-webkit-filter: drop-shadow(5px 5px 5px #4682B4); 
+filter: drop-shadow(5px 5px 5px #4682B4); 
+}
+
+/*картинка в начале*/     
+.exmpl img {
+position: absolute;     
+top: 0%; 
+left: 0%;  
+height: 100%;
+width: 100%;
+z-index: 1;
+ }
+      
+/*меню*/
+.sideNav {
+ overflow: hidden;
+ background-color: rgba(91, 120, 214, 0.966);
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 2;
+}
+.sideNav a {
+ float: left;
+ display: block;
+ color: #ffffff;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ font-size: 17px;
+}
+.sideNav a:hover {
+ background: rgb(136, 44, 44);
+ color: rgb(255, 255, 255);
+}
+.topnav-right {
+position: absolute;     
+top: 0%; 
+left: 90%;
+
+}
+.main {
+ padding: 16px;
+ margin-top: 30px;
+ height: 1500px;
+}
+
+/*flex разметка гринч*/
+.container{
+transform: translate(0%, -200%);
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+overflow: hidden;
+z-index: 1;
+}
+img{
+    height: 300px;
+    flex:20%;
+    transition: flex 300ms ease;
+    box-shadow: 0 0 19px 3px #000;
+    margin: 1x;
+   
+}
+img:hover{
+    flex: 0.1 0.1 400px;
+    background-size: 100% 100%;
+    
+}
+/*текст*/
+.ist{
+position: absolute;     
+top: 215%; 
+left: 40%;
+color:rgb(136, 44, 44);
+font-size: 50px;  
+}
+.geroi{
+position: absolute;     
+top: 110%; 
+left: 35%;
+color:rgb(136, 44, 44);
+font-size: 50px;
+}
+.geroi1{
+position: absolute;     
+top: 127%; 
+left: 3%;
+color:rgb(65, 19, 170);
+font-size: 25px;   
+text-align: left;
+}
+
+.istor{
+position: absolute;     
+top: 225%; 
+left: 1%;
+
+font-size: 25px;   
+text-align: left;
+}
+
+footer {
+position: absolute;
+top: 380%; 
+left: 43%;    
+text-align: center;
+flex-grow: 0;
+padding: 20px 0;
+font-size: 20px;   
+
+}
+.centered{
+position: absolute;
+top: 108%; 
+left: 65%;  
+font-size: 7px;
+color:rgb(94, 34, 34); 
+z-index: 2;
+}
+</style>
+
+<script>
+    window.onload = function () {
+     var slides = document.querySelectorAll('#slides .slide');
+     var currentSlide = 0;
+     var slideInterval = setInterval(nextSlide,2000);
+     function nextSlide() {
+     slides[currentSlide].className = 'slide';
+     currentSlide = currentSlide + 1;
+     if (slides.length == currentSlide) {
+     currentSlide = 0; }
+     slides[currentSlide].className = 'slide showing';
+     }
+    }
+
+function sendMail()
+{
+    var body=document.getElementById("myTextarea").value;
+    window.location.href="mailto:jenya.coptewa@yandex.ru?subject=Письмо Гринчу&body="+body;
+}
+
+var flag=false;
+function playAudio(url) {
+if (!flag){
+ var audio = new Audio(url);
+ audio.loop=true;
+ audio.play();
+ flag=true;}
+}
+
+</script>
+
+</head>
+
+
+<body >  
+    <div id="grinch12_image">
+    <img src="images/grinch12.jpg" width=100% height=auto>
+    </div>
+
+   <div id="istoria"></div>
+   <div class="ist">История Героя</div>
+    
+    <!--фото около о герое-->
+    <div id="grinch1_image">
+    <img src="images/grinch6.jpg" width=100% height=auto>
+    </div>
+ 
+ 
+    <div id = "OGeroe"> </div>
+    <div class= "geroi"> Характеристика Героя</div>    
+    <div class= "geroi1">GRINCH представляет собой покрытого зелёной шерстью гуманоида,<br>
+        живущего в уединении на вершине горы, откуда он наблюдает за весёлыми жителями<br>
+        сказочного городка Ктоград. У него на столько маленькое сердце, что он<br>
+        не способен любить.Он презирает рождественский сезон и предпраздничную суету.<br>
+        Более того, его раздражает счастье других, поскольку сам Гринч получает<br>
+        удовольствие от того, что портит всем настроение. </div>
+
+<main>
+   
+        <div class ="istor"> 
+        <p> Уже с детства Grinch  был особенным ребенком.<br>
+        В отличие от остальных детей,Grinch был зеленого цвета,предпочитал есть <br>
+        тарелки и был очень силен.Герой был влюблен в одноклассницу Марту Мей, которой <br>
+        тоже нравился, но популярный мальчик в школе всячески его изводил пытаясь<br>
+        завоевать Марту.На Рождество, Гринч решил подарить Марте подарок. В свои<br>
+        восемь лет, он почти весь был покрыт волосами,чтобы выглядеть более эффектно,<br>
+        Гринч решил побриться.Над ним смеялся весь класс, за что Гринч и возненавидел Рождество.<br>
+        Показав всем свою могучую силу,швырнув елку, Гринч исчез на долгие годы.<br>
+        Поселившись на горе, он стал вынашивать план, как отомстить жителям Ктовилля.<br>
+        Жизнь Гринча изменилась, когда его персона привлекла маленькую девочку Синди Лу,<br>
+        которая увидела что-то доброев существе и решила ему помочь.<br>
+        Девочка пригласила “монстра” на праздник города,отпраздновать Рождество<br>
+        с жителями Ктовилля.Явившись в город, Гринча ждала очередная подстава, ему вручили бритву,<br>
+        а Марта Мей согласилась выйти замуж за мэра (мальчик который доставал Гринча<br>
+        в детстве).Испортив праздник жителям, негодяй решил украсть у них Рождество.<br>
+        Гринч украл все подарки из Ктовилля, но не испортил жителям праздника.<br>
+        В этот момент он понял, что Рождество этоне только подарки, оно значит что-то больше.<br>
+        Осознав это, герой почувствовал как его сердце увеличилось в размерах.<br>
+        Он вернул все подарки, отметив праздник с горожанами.</p>
+        <p>
+        <img src="images/grinch11.jpg" alt="just grinch" />
+        </p>
+        
+        </div>
+        
+    
+</main>
+             
+<div id="hello_world">
+    <div class="centered">
+    <h1 onclick="playAudio('images/grin.mp3')">Включить музыку!</h1>
+    </div>
+    </div>
+    
+  
+    <!--банер-->
+    <div id="slides" >
+        <img src="images/grinch1.jpg" class="slide showing">
+        <img src="images/grinch2.jpg" class="slide ">
+        <img src="images/grinch3.jpg" class="slide ">
+        <img src="images/grinch4.jpg" class="slide ">
+        <img src="images/grinch5.jpg" class="slide ">
+        </div>         
+
+    <!--меню-->
+    <div class="sideNav">
+        
+        
+       <a href="#OGeroe">О Герое</a>
+       <a href="#istoria">История</a>
+       <a href="#contact">Письмо Герою</a> 
+       <div class="topnav-right">
+       <a href="#nachfoto">На главную</a>
+        
+        </div>
+    </div>
+            
+    <div class="main">
+    <h1></h1>
+        
+    </div>
+<!--начальная часть страницы-->
+    <div id="nachfoto"></div>
+    <div class="wrapper exmpl">
+    <img src="images/grinch9.jpg">
+    </div>
+
+     <!--flex разметка--> 
+    
+    <div class="container">
+        <img src="images/grinch8.jpg?random">
+        <img src="https://avatars.mds.yandex.net/get-zen_doc/50509/pub_5c250a54746a3900a9ef0aff_5c250bed825d2000ab73f40a/scale_1200/?random">
+        <img src="images/grinch10.jpg?/random">  
+
+    </div>
+        
+    <section id="contact"> </section>
+            
+    <div class="item3">
+        
+    <form id="myForm"action="mailto:jenya.coptewa@yandex.ru"enctype="text/plain"mathod="post">
+    <h2>Напишите письмо Grinch</h2><br>
+    <inpyt type="radio" id="Grinch" name="myRadio"  onclick="handleClick(this);" value="Grinch"/>
+    <label for ="Grinch"></label>
+
+    <inpyt type="radio" id="nikto" name="myRadio"  onclick="handleClick(this);" value="nikto"/>
+    <label for ="nikto"></label>
+
+    <br>
+    <br>
+        <label for ="fname">Введите Ваше имя:</label><br>
+        <input type ="text" id="fname" name="fname" value="" placeholder="Введите Ваше имя" onchange="textChange(this.value)">
+        <br><br>
+            <label for ="email">Веведите Ваш email:</label><br>
+            <input name="email" id="email" type="email" placeholder="Введите Ваш email адресс" required/>
+            
+        <br><br>  
+        <label for="country">Страна</label>
+        <select id="country" name="country" onchange="selectChange(this.value)">
+            <option value="Russha">Россия</option>
+            <option value="Australia">Австралия</option>
+            <option value="Canada">Канада</option>
+            </select>
+        <p><textarea id ="myTextarea" rows="10" cols="45" name="text" value=""></textarea></p>
+        <button type="button" onclick="sendMail()">Send</button>
+        <button type="button" onclick="clearButton()">Clear</button>    
+        </form>
+        </div>
+       </select>  
+         </form>
+</div>
+</section>
+    <footer>
+    <small><a href="https://vk.com/jenysshha" target="_blank">by #KoptevaEvgenia, Nizhniy Novgorod © 2021</a></small>
+    </footer>   
+</body>
+</html>       
+        
+        
+  
+ 
+       
+
+
+
+
+
+
+
